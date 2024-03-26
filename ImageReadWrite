@@ -1,0 +1,17 @@
+import cv2
+img = cv2.imread("images\DIP3E_Original_Images_CH01\Fig0107(b)(kidney-original).tif",0)
+# second arguement after img path defines type of img; 
+#0 for gray, 1 for color, -1 for colored with alpha
+print(img)
+
+cv2.imshow('image',img)
+k = cv2.waitKey(0) #wait for user to close image window
+#loop used so that when the 27(esc) pressed img will not be saved in file
+#but when pressed 's', img will be saved as kidney_copy.tif
+
+if k == 27:
+    cv2.destroyAllWindows()  #clean up windows that opened to display image
+elif k==ord('s'):
+    cv2.imwrite('kidney_copy.tif',img)
+    cv2.destroyAllWindows()
+
